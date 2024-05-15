@@ -1,0 +1,66 @@
+// AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
+//
+// PlatformIO Debugging Solution
+//
+// Documentation: https://docs.platformio.org/en/latest/plus/debugging.html
+// Configuration: https://docs.platformio.org/en/latest/projectconf/sections/env/options/debug/index.html
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: grb_ctrl.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/grb_ctrl.py",
+            "args": [
+                "--port", "/dev/ttyUSB4", // "Port of the peltier control device"
+                "--config", "config/grb_ctrl_config_without_temp.json" // This config file is available within the data and outputs downloaded separately
+            ]
+        },
+        {
+            "name": "Python Debugger: peaks_finder.py",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "--isotope", "cs137", 
+                "--t", "-10", 
+                "-d",  "data/t", 
+                "--hv-from", "150",
+                "--hv-to", "180",
+                "-ch", "0",
+                "-o", "./outputs/test.csv"
+            ],
+            "module": "peaks_finder.peaks_finder"
+        },
+        {
+            "name": "Python Debugger: peaks_finder.py, auto mode", // not finished yet
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "--isotope", "eu152", 
+                "--t", "40", 
+                "-d",  "data/t", 
+                "--hv-from", "180",
+                "-ch", "0",
+                "-o", "./outputs/data-temp-iter1.csv",
+                "--auto",
+                "--calib", "./outputs/init_calib.txt"
+            ],
+            "module": "peaks_finder.peaks_finder"
+        },
+        {
+            "name": "Python Debugger: rotary_calib.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rotary_calib.py",
+            "args": [
+                "-o", "./outputs/rotcal_cs_bok.csv",
+                "--hv-from", "150",
+                "--hv-to", "150",
+                "--ch", "0",
+                "--step", "10",
+                "--exp-time", "300"
+            ]
+        },
+    ]
+}
