@@ -37,3 +37,8 @@ Sample configuration for each of these is in `.vscode/launch.json` file.
 Data and results from our calibration can be downloaded from [here](https://owncloud.cesnet.cz/index.php/s/uj82wuxiYYigzHS)
 
 All the notebooks used for the data analysis can be found in `notebooks` directory.
+
+## temp_ctrl
+
+Within the `temp_ctrl` directory is a platformio project, with simple code for the ESP32 devkit
+controlling the Peltier element.
